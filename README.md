@@ -8,7 +8,7 @@ This custom implementation of FaceNet trained on dog face dataset. My approach w
 
 
 
-##Model Architecture and Training Design
+## Model Architecture and Training Design
 
 ![Pic of Model](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/inception.png)
 
@@ -38,7 +38,7 @@ So for an anchor image, we select a positive image that has embedding farthest f
 
 
 The training process is essentially, the neural network learning to generate embeddings that minimizes the triplet loss. This ensures the trained model would embed images of the same person very close to each other.
-##Building a dog search engine
+## Building a dog search engine
 I trained facenet on dog dataset using a custom dataloader that implements hard triplet mining.
 
 ![Tensorboard](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/loss.png)
