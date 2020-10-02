@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+                
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+
+</script>
+
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 300px;
+ 
+}
+#res_img{
+    width:200px
+}
+#wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+#result1{
+    /* width:335px; */
+    align-items: center;
+        justify-content: center;
+        /* display: flex; */
+}
+#cards{
+    align-items: center;
+    justify-content: center;
+}
+
+  </style>
+</head>
+<body>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Find My Dog</h1>
+        
+      </div>
+      
+      
+
+<div class="container" id ="wrapper">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Upload Image</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-default btn-file">
+                        Browse… <input type="file" id="imgInp">
+                    </span>
+                </span>
+                <input type="text" class="form-control" readonly>
+            </div>
+            <img id='img-upload'/>
+        </div>
+    </div>
+    </div>
+
+<div class="container p-3 my-3 bg-muted text-white" id="wrapper"><button type="button" class="btn btn-primary btn-lg" onclick="searchfunction()">Search</button>
+    <button type="button" class="btn btn-outline-primary" onclick="clearfunction()">Clear</button></div>
+<div class="container p-3 my-3 bg-primary text-white" id="wrapper"> Result 1</div>
+<div class="container" >
+    <div class="row row-cols-3" id="result1">
+        
+    </div>
+</div>
+
+<div class="container p-3 my-3 bg-primary text-white" id="wrapper">Result 2</div>
+ 
+<div class="container" >
+    <div class="row row-cols-3" id="result2">
+      
+    </div>
+
+</div>
+
+<div class="container p-3 my-3 bg-primary text-white" id="wrapper">Result 3</div>
+
+<div class="container">
+    <div class="row row-cols-3" id="result3"></div>
+</div>
+
+<div class="container p-3 my-3 bg-primary text-white" id="wrapper">Result 4</div>
+<div class="container">
+    <div class="row row-cols-3" id="result4"></div>
+</div>
+
+    
+
+
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+    <!-- <p>Footer</p> -->
+  </div>
+
+</body>
+<script>
+    // document.getElementById("div1").innerHTML += "<h1>New text!</h1>"
+
+
+    function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
+}    
+function clearfunction(params) {
+    document.getElementById("result1").innerHTML=""
+    document.getElementById("result2").innerHTML=""
+    document.getElementById("result3").innerHTML=""
+    document.getElementById("result4").innerHTML=""}    
+function searchfunction(params) {
+    document.getElementById("result1").innerHTML=""
+    document.getElementById("result2").innerHTML=""
+    document.getElementById("result3").innerHTML=""
+    document.getElementById("result4").innerHTML=""
+
+    var dataimg = new FormData();
+    dataimg.append('img', dataURItoBlob($("#img-upload")[0].src));
+    $.ajax({
+            url: "/search",
+            type:"POST",
+            cache : false,
+            contentType : false,
+            processType : false,
+            processData : false,
+            data: dataimg,
+
+            
+        }).done(function(ims) {console.log(ims)
+        
+    top_='<div class="card" id="cards"><div class="card-body"><img src="' 
+    bot_='" id="res_img"></div></div>'
+
+    // result_variable={{ims | tojson}};
+    result_variable=ims ;
+    result_1=result_variable["results1"]
+    console.log(result_1)
+    result_1.forEach(element => {
+        console.log(element)
+        console.log(top_+element+bot_)
+        document.getElementById("result1").innerHTML +=top_+element+bot_
+    });
+    result_2=result_variable["results2"]
+    result_2.forEach(element => {
+        console.log(element)
+        console.log(top_+element+bot_)
+        document.getElementById("result2").innerHTML +=top_+element+bot_
+    });
+    result_3=result_variable["results3"]
+    result_3.forEach(element => {
+        console.log(element)
+        console.log(top_+element+bot_)
+        document.getElementById("result3").innerHTML +=top_+element+bot_
+    });
+    result_4=result_variable["results4"]
+    result_4.forEach(element => {
+        console.log(element)
+        console.log(top_+element+bot_)
+        document.getElementById("result4").innerHTML +=top_+element+bot_
+    });
+        
+        
+        
+        });
+
+    
+    
+};
+
+
+</script>
+
+
+</html>

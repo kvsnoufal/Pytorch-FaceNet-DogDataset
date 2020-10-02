@@ -1,6 +1,7 @@
 *.csv
 *.jpg
 *.pth
+*.pyc
 /__pycache__
 /logdir_train
 /model_train
