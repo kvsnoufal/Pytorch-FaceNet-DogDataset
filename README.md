@@ -27,7 +27,7 @@ Negative sample (n) - image of person B
 2. Train the model to minimize the triplet loss:
 ![Triplet Loss function](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/tripletloss.gif)
 
-![training](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/training.gif)
+![training](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/trainging.gif)
 
 
 
@@ -43,7 +43,7 @@ I trained facenet on dog dataset using a custom dataloader that implements hard 
 
 ![Tensorboard](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/loss.png)
 
-![Tensorboard Embedding](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/embedding.png)
+![Tensorboard Embedding](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/embedding.gif)
 
 Check out youtube video :
 [Youtube Link](https://youtu.be/0VZiECk8NjM)
