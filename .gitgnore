@@ -1,5 +1,6 @@
 *.csv
 *.jpg
 *.pth
-__pycache__
-logdir_train
+/__pycache__
+/logdir_train
+/model_train
