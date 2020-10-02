@@ -4,6 +4,8 @@ Paper To Code implementation of Facenet on dog-face dataset using custom online 
 
 Original Paper- [ArxViv](https://arxiv.org/abs/1503.03832)
 
+Pls checkout the [medium article](https://medium.com/analytics-vidhya/building-a-dog-search-engine-with-facenet-65d1ae79dd8a) for a quick overview.
+
 This custom implementation of FaceNet trained on dog face dataset. My approach was to read the paper (FaceNet: A Unified Embedding for Face Recognition and Clustering) and try to implement the model from my interpretation of the paper. I have used pytorch for the implementation.
 
 
