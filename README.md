@@ -10,8 +10,7 @@ This custom implementation of FaceNet trained on dog face dataset. My approach w
 
 ##Model Architecture and Training Design
 
-![Pic of Model](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/inception.png)
-
+![Pic of Model](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/inception.png)
 
 The objective of the model is to generate embeddings that satisfy this these 2 constraints:
 Same faces are close to each other in embedding space
@@ -26,25 +25,25 @@ Positive sample (p)-another image of person A
 Negative sample (n) - image of person B
 
 2. Train the model to minimize the triplet loss:
-![Triplet Loss function](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/tripletloss.gif)
+![Triplet Loss function](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/tripletloss.gif)
 
-![training](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/training.gif)
+![training](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/training.gif)
 
 
 
 One of the optimizations to the training processes proposed in the paper is the triplet selection process - Hard Triplet Mining. In order to reduce the time taken for convergence of the model, triplets which can contribute to model improvement need to be carefully selected. 
 So for an anchor image, we select a positive image that has embedding farthest from anchor's - Hard Positive. And we select a negative image that has embedding closest to the anchor's - Hard Negative.
 
-![Hard Triplet Mining](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/hardnegative.png)
+![Hard Triplet Mining](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/hardnegative.png)
 
 
 The training process is essentially, the neural network learning to generate embeddings that minimizes the triplet loss. This ensures the trained model would embed images of the same person very close to each other.
 ##Building a dog search engine
 I trained facenet on dog dataset using a custom dataloader that implements hard triplet mining.
 
-![Tensorboard](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/loss.png)
+![Tensorboard](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/loss.png)
 
-![Tensorboard Embedding](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/docs/embedding.png)
+![Tensorboard Embedding](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/embedding.png)
 
 Check out youtube video :
 [Youtube Link](https://youtu.be/0VZiECk8NjM)
