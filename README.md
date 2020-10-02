@@ -45,6 +45,9 @@ I trained facenet on dog dataset using a custom dataloader that implements hard 
 
 ![Tensorboard Embedding](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/embedding.gif)
 
+
+![Web gif](https://github.com/kvsnoufal/Pytorch-FaceNet-DogDataset/blob/master/doc/facenet_webinterface.gif)
+
 Check out youtube video :
 [Youtube Link](https://youtu.be/0VZiECk8NjM)
 
